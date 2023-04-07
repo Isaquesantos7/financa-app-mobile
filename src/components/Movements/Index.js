@@ -19,7 +19,7 @@ function Movements({dados}) {
                         </Text>
                     ) : (
                         <View style={styles.skaleton}></View>
-                     )
+                    )
                 }
             </View>
         </TouchableOpacity>

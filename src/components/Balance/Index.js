@@ -1,23 +1,45 @@
-import React from "react";
-import { View, Text, StyleSheet } from 'react-native';
+import { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 function Balance({saldo, gasto}) {
+
+    const [showValueSaldo, setShowValueSaldo] = useState(false);
+    const [showValueGasto, setShowValueGasto] = useState(false);
+
     return (
         <View style={styles.container}>
 
             <View style={styles.item}>
                 <Text style={styles.itemTitle}>Saldo</Text>
-                <View style={styles.content}>
-                    <Text style={styles.currencySymbol}>R$</Text>
-                    <Text style={styles.balance}>{saldo}</Text>
-                </View>
+                {
+                    <View style={styles.content}>
+                        <Text style={styles.currencySymbol}>R$</Text>
+                        <TouchableOpacity onPress={ () => setShowValueSaldo(!showValueSaldo) }>
+                            {
+                                showValueSaldo ? (
+                                    <Text style={styles.balance}>{saldo}</Text>
+                                ) : (
+                                    <View style={styles.skaleton}></View>
+                                )
+                            }
+                        </TouchableOpacity>
+                    </View>
+                }
             </View>
 
             <View style={styles.item}>
                 <Text style={styles.itemTitle}>Gasto</Text>
                 <View style={styles.content}>
                     <Text style={styles.currencySymbol}>R$</Text>
-                    <Text style={styles.expenses}>{gasto}</Text>
+                    <TouchableOpacity onPress={ () => setShowValueGasto(!showValueGasto)}>
+                        {
+                            showValueGasto ? (
+                                <Text style={styles.expenses}>{gasto}</Text>
+                            ) : (
+                                <View style={styles.skaleton}></View>
+                            )
+                        }
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -46,10 +68,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
-    item: {
-        
-    },
-
     itemTitle: {
         fontSize: 20,
         color: '#DADADA',
@@ -68,6 +86,14 @@ const styles = StyleSheet.create({
     expenses: {
         fontSize: 22,
         color: '#e74c3c'
+    },
+
+    skaleton: {
+        marginTop: 6,
+        width: 80,
+        height: 10,
+        backgroundColor: "#DADADA",
+        borderRadius: 100 / 2,
     }
 });
 
