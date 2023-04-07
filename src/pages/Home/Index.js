@@ -6,6 +6,8 @@ import Balance from '../../components/Balance/Index.js';
 
 import Movements from "../../components/Movements/Index.js";
 
+import Actions from "../../components/Actions/Index.js";
+
 const list = [
     {
         id: 1,
@@ -39,8 +41,10 @@ function Home() {
 
     return (
         <View style={styles.container}>
-            <Header name="Isaquesantos7"/>
+            <Header name="Isaque Santos Pinto"/>
             <Balance saldo={saldo} gasto={gasto}/>
+
+           <Actions />
 
             <Text style={styles.title}>Últimas movimentações</Text>
 
