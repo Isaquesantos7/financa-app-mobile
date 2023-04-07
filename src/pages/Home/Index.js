@@ -31,6 +31,22 @@ const list = [
         value: '3000,00',
         date: '06/04/2023',
         type: 1 // receita // entrada
+    },
+
+    {
+        id:4,
+        label: 'Pix cliente Rosalvo',
+        value: '10,00',
+        date: '03/04/2023',
+        type: 1 // receita // entrada
+    },
+
+    {
+        id: 5,
+        label: 'IFood',
+        value: '39,85',
+        date: '06/04/2023',
+        type: 0 // receita // entrada
     }
 ]
 
